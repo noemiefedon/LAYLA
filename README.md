@@ -71,4 +71,4 @@ Author:
 Noémie Fedon
 
 For any questions or feedback don't hesitate to contact me at: noemiefedon@gmail.com
-or through github at https://github.com/noemiefedon/RELAY
+or through github at https://github.com/noemiefedon/LAYLA
