@@ -29,7 +29,7 @@ In order to use it:
 3. Change the settings and run one of the files used to test LAYLA: 
 run_LAYLA_V02.py, run_LAYLA_V02_SSpop.py, run_LAYLA_V02_loop.py, run_LAYLA_vs_BBK.py 
 
-Refer to the documentation for more detail.
+Refer to the documentation for more details.
 --------------------------------------------------------------------------
 Folder Structure
 
