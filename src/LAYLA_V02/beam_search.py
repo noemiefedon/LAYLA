@@ -372,10 +372,10 @@ def beam_search(
             # local pruning
             n_local_nodes = obj_const.size
             if last_group and local_level != group_size - 1:
-                branching_limit = parameters.local_branching_limit_final
+                node_limit = parameters.local_node_limit_final
             else:
-                branching_limit = parameters.local_branching_limit
-            n_excess_nodes = n_local_nodes - branching_limit
+                node_limit = parameters.local_node_limit
+            n_excess_nodes = n_local_nodes - node_limit
             if local_level != group_size - 1 and n_excess_nodes > 0:
                 obj_const_tab_to_del = np.copy(obj_const)
                 to_del = []
@@ -399,9 +399,9 @@ def beam_search(
 
         # global pruning
         if last_group and local_level == group_size - 2:
-            if obj_const_tab.size > parameters.global_branching_limit_p:
+            if obj_const_tab.size > parameters.global_node_limit_p:
                 obj_const_to_del = np.copy(obj_const_tab)
-                for counter in range(parameters.global_branching_limit_p):
+                for counter in range(parameters.global_node_limit_p):
                     my_min = np.argmin(obj_const_to_del)
                     obj_const_to_del[my_min] = 6666
                 to_keep = obj_const_to_del == 6666
@@ -418,9 +418,9 @@ def beam_search(
                 obj_const_tab = np.delete(obj_const_tab, np.s_[to_del])
 
         elif local_level != group_size - 1:
-            if obj_const_tab.size > parameters.global_branching_limit:
+            if obj_const_tab.size > parameters.global_node_limit:
                 obj_const_to_del = np.copy(obj_const_tab)
-                for counter in range(parameters.global_branching_limit):
+                for counter in range(parameters.global_node_limit):
                     my_min = np.argmin(obj_const_to_del)
                     obj_const_to_del[my_min] = 6666
                 to_keep = obj_const_to_del == 6666

@@ -24,10 +24,10 @@ class Parameters(object):
                  group_size_max=np.array([8]),
                  first_level_sensitivities=np.ones((12,), float),
                  lampam_to_be_optimised=np.ones((12,), float),
-                 global_branching_limit=100,
-                 global_branching_limit_p=10,
-                 local_branching_limit=1000,
-                 local_branching_limit_final=1000,
+                 global_node_limit=100,
+                 global_node_limit_p=10,
+                 local_node_limit=1000,
+                 local_node_limit_final=1000,
                  repair_membrane_switch=True,
                  repair_flexural_switch=True,
                  p_A=100,
@@ -208,43 +208,43 @@ number of outer loops in LAYLA!''')
 
         # Branching limit for global pruning during ply orientation
         # optimisation
-        self.global_branching_limit = np.around(global_branching_limit)
-        if not isinstance(global_branching_limit, int):
+        self.global_node_limit = np.around(global_node_limit)
+        if not isinstance(global_node_limit, int):
             raise ParametersDefinitionError("""
-Attention, global_branching_limit must be an integer!""")
-        if global_branching_limit < 1:
+Attention, global_node_limit must be an integer!""")
+        if global_node_limit < 1:
             raise ParametersDefinitionError("""
-Attention, global_branching_limit must be strictly positive!""")
+Attention, global_node_limit must be strictly positive!""")
 
         # Branching limit for global pruning at the penultimate level during
         # ply orientation optimisation
-        self.global_branching_limit_p = np.around(global_branching_limit_p)
-        if not isinstance(global_branching_limit_p, int):
+        self.global_node_limit_p = np.around(global_node_limit_p)
+        if not isinstance(global_node_limit_p, int):
             raise ParametersDefinitionError("""
-Attention, global_branching_limit_p must be an integer!""")
-        if global_branching_limit_p < 1:
+Attention, global_node_limit_p must be an integer!""")
+        if global_node_limit_p < 1:
             raise ParametersDefinitionError("""
-Attention, global_branching_limit_p must be strictly positive!""")
+Attention, global_node_limit_p must be strictly positive!""")
 
         # Branching limit for local pruning during ply orientation
         # optimisation
-        self.local_branching_limit = np.around(local_branching_limit)
-        if not isinstance(local_branching_limit, int):
+        self.local_node_limit = np.around(local_node_limit)
+        if not isinstance(local_node_limit, int):
             raise ParametersDefinitionError("""
-Attention, local_branching_limit must be an integer!""")
-        if local_branching_limit < 1:
+Attention, local_node_limit must be an integer!""")
+        if local_node_limit < 1:
             raise ParametersDefinitionError("""
-Attention, local_branching_limit must be strictly positive!""")
+Attention, local_node_limit must be strictly positive!""")
 
         # Branching limit for local pruning during last level of ply orientation
         # optimisation
-        self.local_branching_limit_final = np.around(local_branching_limit_final)
-        if not isinstance(local_branching_limit_final, int):
+        self.local_node_limit_final = np.around(local_node_limit_final)
+        if not isinstance(local_node_limit_final, int):
             raise ParametersDefinitionError("""
-Attention, local_branching_limit_final must be an integer!""")
-        if local_branching_limit_final < 1:
+Attention, local_node_limit_final must be an integer!""")
+        if local_node_limit_final < 1:
             raise ParametersDefinitionError("""
-Attention, local_branching_limit_final must be strictly positive!""")
+Attention, local_node_limit_final must be strictly positive!""")
 
 
 
@@ -384,10 +384,10 @@ Optimiser parameters:
     N_repeat_flexural_repair: {self.n_D3}
     Type of objective function: norm {self.type_obj_func}
     Branching limits:
-        - for global pruning during ply orientation optimisation: {self.global_branching_limit}
-        - for global pruning at the last level of ply orientation optimisation: {self.global_branching_limit_p}
-        - for local pruning during ply orientation optimisation: {self.local_branching_limit}
-        - for local pruning at the last level of ply orientation optimisation: {self.local_branching_limit_final}
+        - for global pruning during ply orientation optimisation: {self.global_node_limit}
+        - for global pruning at the last level of ply orientation optimisation: {self.global_node_limit_p}
+        - for local pruning during ply orientation optimisation: {self.local_node_limit}
+        - for local pruning at the last level of ply orientation optimisation: {self.local_node_limit_final}
     Lampam_weightings_final:
         A:   {self.lampam_weightings_final[0]:.2f}   {self.lampam_weightings_final[1]:.2f}   {self.lampam_weightings_final[2]:.2f}   {self.lampam_weightings_final[3]:.2f}
         B:   {self.lampam_weightings_final[4]:.2f}   {self.lampam_weightings_final[5]:.2f}   {self.lampam_weightings_final[6]:.2f}   {self.lampam_weightings_final[7]:.2f}

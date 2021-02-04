@@ -56,9 +56,9 @@ Decide whether or not the stacking sequences must satisfy 10% rule""")
     first_outer_loop_assumption = 'layerwise_QI'
 
     method = 'beam_search' # with beam search
-    global_branching_limit = 20
-    local_branching_limit = 10
-    global_branching_limit_p = 20
+    global_node_limit = 20
+    local_node_limit = 10
+    global_node_limit_p = 20
 
     pseudo = True
 
@@ -115,9 +115,9 @@ Decide whether or not the stacking sequences must satisfy 10% rule""")
             lampam_to_be_optimised=lampam_to_be_optimised,
             method=method,
             first_outer_loop_assumption=first_outer_loop_assumption,
-            global_branching_limit=global_branching_limit,
-            local_branching_limit=local_branching_limit,
-            global_branching_limit_p=global_branching_limit_p,
+            global_node_limit=global_node_limit,
+            local_node_limit=local_node_limit,
+            global_node_limit_p=global_node_limit_p,
             pseudo=pseudo,
             repair_membrane_switch=repair_membrane_switch,
             repair_flexural_switch=repair_flexural_switch,

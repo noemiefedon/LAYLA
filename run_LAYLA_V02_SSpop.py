@@ -175,15 +175,15 @@ mat_prop = Material(E11 = E11, E22 = E22, G12 = G12, nu12 = nu12)
 n_outer_step = 5
 
 # branching limit for global pruning during ply orientation optimisation
-global_branching_limit = 50
+global_node_limit = 50
 # branching limit for local pruning during ply orientation optimisation
-local_branching_limit = 100
+local_node_limit = 100
 # branching limit for global pruning at the penultimate level during ply
 # orientation optimisation
-global_branching_limit_p = 50
+global_node_limit_p = 50
 # branching limit for local pruning at the last level during ply
 # orientation optimisation
-local_branching_limit_final = 1
+local_node_limit_final = 1
 
 ### Techniques to enforce the constraints
 # repair to improve the convergence towards the in-plane lamination parameter
@@ -273,10 +273,10 @@ parameters = Parameters(
     group_size_max=group_size_max,
     first_level_sensitivities=first_level_sensitivities,
     lampam_to_be_optimised=lampam_to_be_optimised,
-    global_branching_limit=global_branching_limit,
-    local_branching_limit=local_branching_limit,
-    global_branching_limit_p=global_branching_limit_p,
-    local_branching_limit_final=local_branching_limit_final,
+    global_node_limit=global_node_limit,
+    local_node_limit=local_node_limit,
+    global_node_limit_p=global_node_limit_p,
+    local_node_limit_final=local_node_limit_final,
     repair_membrane_switch=repair_membrane_switch,
     repair_flexural_switch=repair_flexural_switch,
     penalty_10_lampam_switch=penalty_10_lampam_switch,
